@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shukka.sample.SampleMapper">
+
+	<!--
+		useridを指定して1件取得する
+	 -->
+	<select id="findById" resultType="com.example.shukka.sample.SampleResult">
+		SELECT
+			code,
+			name,
+			seizomoto,
+			bunrui,
+			tani,
+			yoryo_tani,
+			yoryo,
+			juryo
+
+		FROM
+			syohin AS syohin
+
+		WHERE
+			syohin.code = #{code}
+	</select>
+
+</mapper>

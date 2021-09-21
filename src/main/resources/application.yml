@@ -1,0 +1,30 @@
+spring.datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+#  url: jdbc:mysql://localhost:3308/syukka_gyomu?serverTimezone=JST
+  url: jdbc:mysql://localhost:3306/syukka_gyomu
+  username: syukka_gyomu
+  password: syukka_gyomu
+  validationQuery: SELECT 1
+  testOnBorrow: true
+  hikari:
+    pool-name: ConnectionPool
+    leakDetectionThreshold: 5000
+    connection-test-query: SELECT 1
+    minimum-idle: 5
+    maximum-pool-size: 10
+    auto-commit: false
+
+ # MyBatisの設定
+mybatis:
+  # xmlで使うタイプ（ResultType、ParameterType）のパッケージ名を省略できるよう設定
+  type-aliases-package: jp.ne.shinei.purchasesupporter.infrastructure.dbaccess, jp.ne.shinei.purchasesupporter.domain
+  # SQL項目(主にSELECT句)のアンダースコアをキャメルケースに変換して自動マッピングするための設定
+  configuration:
+    map-underscore-to-camel-case: true
+
+# Jackson ObjectMapper
+spring.jackson.visibility:
+  field: any
+  getter: none
+  is-getter: none
+  setter: none
