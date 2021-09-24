@@ -18,10 +18,8 @@
 			yoryo_tani,
 			yoryo,
 			juryo
-
 		FROM
-			syohin AS syohin
-
+			syohin
 		WHERE
 			syohin.code = #{code}
 	</select>
